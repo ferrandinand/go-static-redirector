@@ -1,0 +1,16 @@
+{
+    "Redirections": [
+      {
+          "Path": "/health",
+          "URL": "http://www.flywire.com/healthcare"
+      },
+      {
+          "Path": "/text",
+          "URL": "/music"
+      },
+      {
+          "Path": "/texo",
+          "URL": "/music"
+      }
+   ]
+}

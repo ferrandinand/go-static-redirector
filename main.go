@@ -5,8 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"../cms-middleware/common"
-	"../cms-middleware/routers"
+	"github.com/ferrandinand/go-static-redirector/routers"
 	"github.com/urfave/negroni"
 )
 
@@ -14,8 +13,7 @@ func main() {
 	redirectionFile := os.Getenv("REDIRECTION_FILE")
 	applicationPort := os.Getenv("APP_PORT")
 
-	common.CustomRedirections(redirectionFile)
-	r := routers.InitRouters()
+	r := routers.InitRouters(redirectionFile)
 
 	n := negroni.Classic()
 	n.Use(negroni.NewStatic(http.Dir("/public")))

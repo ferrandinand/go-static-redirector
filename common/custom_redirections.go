@@ -18,21 +18,25 @@ type Router struct {
 var RedirectionList *Router
 var logger *log.Logger
 
-func CustomRedirections(routerFilePath string) {
+//Load file gets a path for a redirection file and returns a json
+func LoadFile(routerFilePath string) []byte {
 
 	// use default logger
 	logger = log.New(os.Stderr, "", log.LstdFlags)
 	log.Println("Log to stderr")
 
 	routerFile, err := os.Open(routerFilePath)
+	defer routerFile.Close()
+
 	if err != nil {
-		log.Println(err)
-		RedirectionList.Redirections = []Redirection{{Path: "/", URL: "."}}
+		log.Fatal(err)
 	} else {
 		json.NewDecoder(routerFile).Decode(&RedirectionList)
-		routerFile.Close()
 	}
 	logger.Printf("Loading URLs...")
-	routerStr, _ := json.MarshalIndent(RedirectionList, "", "  ")
+
+	routerStr, _ := json.MarshalIndent(&RedirectionList, "", "  ")
 	logger.Printf("Router: %s", routerStr)
+
+	return routerStr
 }

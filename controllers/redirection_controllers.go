@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 
-	"../common"
+	"github.com/ferrandinand/go-static-redirector/common"
 )
 
 //CustomRedirections request
