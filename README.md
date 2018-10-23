@@ -9,13 +9,14 @@ Must be configured in a JSON file and this URL must be defined in REDIRECTION_FI
 
 
 ## RUN
-``` 
+```
 export REDIRECTION_FILE=routes.json
 export APP_PORT=8080
 ./go-static-redirector
-``` 
+```
 
 ## Tests
-``` 
+```
 go tests
-``` 
+```
+
