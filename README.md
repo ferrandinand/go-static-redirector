@@ -1,4 +1,4 @@
-# go-static-redirector
+# Static-redirector
 Json static redirector is a simple golang app which can be used to deploy static files and manage all redirections in a JSON file.
 
 ## Static files
